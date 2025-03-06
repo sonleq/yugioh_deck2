@@ -1,18 +1,22 @@
 <?php
 
-include 'protected_section.php';
-	
+// Include the protected session check
+include 'protected_section.php';  // This will ensure the user is logged in
+
+// Now, the $username is available after including 'protected_section.php'
+$username = $_SESSION['user'];  // Get the logged-in user's username
+
 // Get the card name to edit (from the query string or form)
 if (isset($_GET['card_name'])) {
     $card_name_to_edit = urldecode($_GET['card_name']);
 
-    // File path for the card data
-    $file = "yugioh_cards.txt";
+    // File path for the user's card data
+    $user_card_file = "users/{$username}/{$username}_cards.txt";
 
-    // Check if the file exists and is readable
-    if (file_exists($file) && is_readable($file)) {
+    // Check if the user's card file exists and is readable
+    if (file_exists($user_card_file) && is_readable($user_card_file)) {
         // Read the entire file contents
-        $card_data = file_get_contents($file);
+        $card_data = file_get_contents($user_card_file);
 
         // Split the data into separate card entries
         $cards = explode("\n\n", $card_data);
@@ -95,3 +99,4 @@ if (isset($_GET['card_name'])) {
     echo "No card name provided for editing.";
 }
 ?>
+

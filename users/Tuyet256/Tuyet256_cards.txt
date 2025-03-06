@@ -1,0 +1,16 @@
+
+
+ID: 67c90d54ecaff
+Card Name: Dark Magician Girl
+Type: Spellcaster
+Attribute: 6
+Level: 6
+ATK: 2000
+DEF: 1500
+Effect: None
+Rarity: Normal 
+
+
+
+--------------------
+

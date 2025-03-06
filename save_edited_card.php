@@ -1,12 +1,12 @@
 <?php
 
-include 'protected_section.php';
+include 'protected_section.php';  // Ensure the session is started and the user is logged in
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the original card name
     $old_card_name = $_POST['old_card_name'];  // Used to find the card to edit
 
-    // Get new card details
+    // Get new card details from the form
     $card_name = $_POST['card_name'];
     $card_type = $_POST['card_type'];
     $attribute = $_POST['attribute'];
@@ -16,12 +16,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $effect = $_POST['effect'];
     $rarity = $_POST['rarity'];
 
-    // File path for the card data
-    $file = "yugioh_cards.txt";
+    // Get the logged-in user's username
+    $username = $_SESSION['user'];
 
-    if (file_exists($file) && is_readable($file)) {
+    // Define the file path for the user's card data
+    $user_card_file = "users/{$username}/{$username}_cards.txt";
+
+    // Check if the card file exists and is readable
+    if (file_exists($user_card_file) && is_readable($user_card_file)) {
         // Read the entire file contents
-        $card_data = file_get_contents($file);
+        $card_data = file_get_contents($user_card_file);
 
         // Split the data into separate card entries using "\n\n" (card delimiter)
         $cards = explode("\n\n", $card_data);
@@ -57,18 +61,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $updated_card_data = implode("\n\n", $cards); // Rebuild the card data with the updated card
 
             // Save the updated card data back to the file
-            file_put_contents($file, $updated_card_data);
+            file_put_contents($user_card_file, $updated_card_data);
             echo "<h2>Card '$card_name' updated successfully!</h2>";
         } else {
             echo "<h2>Error: Card not found.</h2>";
         }
 
-        echo "<h2><a href='view_cards.php'>Back to View Cards</a><h2>";
-		echo "<h2><a href='dashboard.php'>Dashboard</a></h2>";
-	
+        // Provide links for navigation
+        echo "<h2><a href='view_cards.php'>Back to View Cards</a></h2>";
+        echo "<h2><a href='dashboard.php'>Dashboard</a></h2>";
 
     } else {
-        echo "Unable to read the card file.";
+        echo "Unable to read the card file. Please check the file path and permissions.";
     }
 } else {
     echo "Invalid request.";
