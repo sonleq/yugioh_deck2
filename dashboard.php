@@ -1,4 +1,5 @@
 <?php
+
 // Check if the user is logged in or has the right permissions
 include 'protected_section.php';  // Make sure the user is logged in
 

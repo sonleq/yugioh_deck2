@@ -1,49 +1,4 @@
 <?php
-/*
-// delete base on card name
-// Get the card name to delete (from the query string or form)
-if (isset($_GET['card_name'])) {
-    $card_name_to_delete = $_GET['card_name'];
-
-    // File path for the card data
-    $file = "yugioh_cards.txt";
-
-    // Check if the file exists and is readable
-    if (file_exists($file) && is_readable($file)) {
-        // Read the entire file contents
-        $card_data = file_get_contents($file);
-        // Split the data into separate card entries
-        $cards = explode("\n\n", $card_data);
-
-        // Initialize an array to store the cards that will remain after deletion
-        $updated_cards = [];
-
-        // Loop through the cards and skip the one that matches the card name to delete
-        foreach ($cards as $card) {
-            if (strpos($card, "Card Name: $card_name_to_delete") === false) {
-                // If this card's name doesn't match, add it to the updated list
-                $updated_cards[] = $card;
-            }
-        }
-
-        // Join the updated cards array back into a string
-        $updated_card_data = implode("\n\n", $updated_cards);
-
-        // Write the updated data back to the file
-        file_put_contents($file, $updated_card_data);
-
-        echo "<h2>Card '$card_name_to_delete' deleted successfully!</h2>";
-        echo "<a href='view_cards.php'>Back to View Cards</a>";
-    } else {
-        echo "Unable to read the card file.";
-    }
-} else {
-    echo "No card name provided for deletion.";
-}*/
-?>
-
-
-<?php
 
 include 'protected_section.php';
 
