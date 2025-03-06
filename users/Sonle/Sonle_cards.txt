@@ -1,0 +1,39 @@
+----- New Card -----
+ID: 67c52dec9e117
+Card Name: Blue Eyes White Dragon
+Type: Dragon
+Attribute: Light
+Level: 8
+ATK: 3000
+DEF: 2500
+Effect: none
+Rarity: normal
+
+--------------------
+
+----- New Card -----
+ID: 67c52e5b4f2b7
+Card Name: Blue Eyes White Dragon
+Type: Dragon
+Attribute: Light
+Level: 8
+ATK: 3000
+DEF: 2500
+Effect: none
+Rarity: normal
+
+--------------------
+
+----- New Card -----
+ID: 67c5302c54b46
+Card Name: Blue Eyes White Dragon
+Type: Dragon
+Attribute: Light
+Level: 8
+ATK: 3000
+DEF: 2500
+Effect: none
+Rarity: normal
+
+--------------------
+
